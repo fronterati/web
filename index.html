@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontera IT - Consultoría en Arquitectura y Datos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #374151; /* gray-700 por defecto para el texto */
+        }
+        .font-bebas {
+            font-family: 'Bebas Neue', cursive;
+        }
+        .hero-bg {
+            background-image: url('bared wire.jpg'); /* Imagen de fondo */
+            background-size: cover;
+            background-position: center;
+        }
+        .cta-hover:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.1); 
+        }
+        .service-card {
+            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+        }
+        .service-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .hexagon-icon-bg {
+            width: 64px;
+            height: 73.9px;
+            /* background-color: #FDE68A; Nuevo color amarillo claro (amber-200 de Tailwind) */
+            background-color: #E5B252; /* Color principal de la imagen */
+            opacity: 0.8; /* Un poco de opacidad para el fondo del hexágono */
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+        /* Colores personalizados */
+        .bg-custom-yellow { background-color: #E5B252; } /* Nuevo color principal */
+        .text-custom-yellow { color: #E5B252; }
+        .hover-bg-custom-yellow-dark:hover { background-color: #D4A147; } /* Un tono más oscuro para hover */
+        .hover-text-custom-yellow-dark:hover { color: #D4A147; }
+
+        .bg-custom-gray-dark { background-color: #1F2937; } /* gray-800 */
+        .bg-custom-gray-medium { background-color: #374151; } /* gray-700 */
+        .bg-custom-gray-light { background-color: #F3F4F6; } /* gray-100 */
+        .text-custom-gray-light { color: #D1D5DB; } /* gray-300 */
+        .border-custom-gray { border-color: #4B5563; } /* gray-600 */
+
+    </style>
+</head>
+<body class="bg-custom-gray-light">
+
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex-shrink-0 flex items-center space-x-2">
+                        <img class="h-10 w-auto" src="frontera180.png" alt="Logo Frontera IT" onerror="this.onerror=null; this.src='https://placehold.co/180x180/E5B252/FFFFFF?text=Logo';">
+                        <span class="font-bebas text-3xl text-custom-yellow">Frontera IT</span>
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="index.html" class="text-gray-600 hover:bg-custom-yellow hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">Inicio</a>
+                        <a href="services.html" class="text-gray-600 hover:bg-custom-yellow hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">Servicios</a>
+                        <a href="about.html" class="text-gray-600 hover:bg-custom-yellow hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">Nosotros</a>
+                        <a href="contact.html" class="text-gray-600 hover:bg-custom-yellow hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">Contacto</a>
+                    </div>
+                </div>
+                <div class="-mr-2 flex md:hidden">
+                    <button type="button" id="mobile-menu-button" class="bg-gray-200 inline-flex items-center justify-center p-2 rounded-md text-gray-500 hover:text-white hover:bg-custom-yellow focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">Abrir menú principal</span>
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                        <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white">
+                <a href="index.html" class="text-gray-700 hover:bg-custom-yellow hover:text-white block px-3 py-2 rounded-md text-base font-medium transition duration-150 ease-in-out">Inicio</a>
+                <a href="services.html" class="text-gray-700 hover:bg-custom-yellow hover:text-white block px-3 py-2 rounded-md text-base font-medium transition duration-150 ease-in-out">Servicios</a>
+                <a href="about.html" class="text-gray-700 hover:bg-custom-yellow hover:text-white block px-3 py-2 rounded-md text-base font-medium transition duration-150 ease-in-out">Nosotros</a>
+                <a href="contact.html" class="text-gray-700 hover:bg-custom-yellow hover:text-white block px-3 py-2 rounded-md text-base font-medium transition duration-150 ease-in-out">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-bg">
+        <div class="bg-black bg-opacity-75"> 
+            <div class="max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8 text-center">
+                <h1 class="font-bebas text-5xl font-extrabold text-white sm:text-6xl lg:text-7xl tracking-wide">
+                    Transformamos su Negocio con Estrategias de TI Innovadoras
+                </h1>
+                <p class="mt-6 text-xl text-gray-200 max-w-3xl mx-auto">
+                    Expertos en Arquitectura Empresarial, Arquitectura de Soluciones y Gobierno de Datos para impulsar su crecimiento y eficiencia.
+                </p>
+                <div class="mt-10">
+                    <a href="services.html" class="inline-block bg-custom-yellow text-gray-800 font-bebas text-2xl py-3 px-10 rounded-md hover-bg-custom-yellow-dark hover:text-white transition duration-300 cta-hover tracking-wider">
+                        Descubra Nuestros Servicios
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-bebas text-4xl font-bold text-gray-800 sm:text-5xl tracking-wide">Nuestras Especialidades</h2>
+                <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+                    Ofrecemos soluciones personalizadas para optimizar su infraestructura tecnológica y procesos de datos.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="bg-custom-gray-light p-8 rounded-xl shadow-lg service-card">
+                    <div class="hexagon-icon-bg">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                    </div>
+                    <h3 class="font-bebas text-2xl font-semibold text-gray-800 mb-3 tracking-wide">Arquitectura Empresarial</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Alineamos su estrategia de TI con sus objetivos de negocio, creando un marco robusto y escalable para el futuro.
+                    </p>
+                    <a href="services.html#arquitectura-empresarial" class="mt-6 inline-block text-custom-yellow font-medium hover-text-custom-yellow-dark transition duration-150">Leer más &rarr;</a>
+                </div>
+                <div class="bg-custom-gray-light p-8 rounded-xl shadow-lg service-card">
+                     <div class="hexagon-icon-bg">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    </div>
+                    <h3 class="font-bebas text-2xl font-semibold text-gray-800 mb-3 tracking-wide">Arquitectura de Solución</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Diseñamos soluciones tecnológicas eficientes y efectivas que resuelven problemas complejos y aportan valor tangible.
+                    </p>
+                     <a href="services.html#arquitectura-solucion" class="mt-6 inline-block text-custom-yellow font-medium hover-text-custom-yellow-dark transition duration-150">Leer más &rarr;</a>
+                </div>
+                <div class="bg-custom-gray-light p-8 rounded-xl shadow-lg service-card">
+                    <div class="hexagon-icon-bg">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
+                    </div>
+                    <h3 class="font-bebas text-2xl font-semibold text-gray-800 mb-3 tracking-wide">Gobierno de Datos</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Implementamos procesos y políticas para asegurar la calidad, seguridad y cumplimiento normativo de sus activos de datos.
+                    </p>
+                    <a href="services.html#gobierno-datos" class="mt-6 inline-block text-custom-yellow font-medium hover-text-custom-yellow-dark transition duration-150">Leer más &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-custom-gray-medium">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="font-bebas text-4xl font-bold text-white sm:text-5xl tracking-wide">
+                ¿Listo para Optimizar su Estrategia Tecnológica?
+            </h2>
+            <p class="mt-4 text-lg text-gray-300 max-w-2xl mx-auto">
+                Contáctenos hoy mismo para una consulta gratuita y descubra cómo podemos ayudar a su empresa a alcanzar nuevos niveles de éxito.
+            </p>
+            <div class="mt-10">
+                <a href="contact.html" class="inline-block bg-custom-yellow text-gray-800 font-bebas text-2xl py-3 px-10 rounded-md hover-bg-custom-yellow-dark hover:text-white transition duration-300 cta-hover tracking-wider">
+                    Hablemos
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-custom-gray-dark text-custom-gray-light py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <img class="h-8 w-auto mr-2" src="frontera180.png" alt="Logo Frontera IT en pie de página" onerror="this.onerror=null; this.src='https://placehold.co/80x80/E5B252/FFFFFF?text=Logo';">
+                        <h3 class="font-bebas text-2xl text-white">Frontera IT</h3>
+                    </div>
+                    <p class="text-sm">Transformando negocios a través de la tecnología y la estrategia de datos.</p>
+                </div>
+                <div>
+                    <h3 class="font-bebas text-xl font-semibold text-white mb-4 tracking-wide">Enlaces Rápidos</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="index.html" class="hover:text-custom-yellow transition duration-150">Inicio</a></li>
+                        <li><a href="services.html" class="hover:text-custom-yellow transition duration-150">Servicios</a></li>
+                        <li><a href="about.html" class="hover:text-custom-yellow transition duration-150">Nosotros</a></li>
+                        <li><a href="contact.html" class="hover:text-custom-yellow transition duration-150">Contacto</a></li>
+                        <li><a href="#" class="hover:text-custom-yellow transition duration-150">Política de Privacidad</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bebas text-xl font-semibold text-white mb-4 tracking-wide">Contacto</h3>
+                    <p class="text-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline-block mr-1 -mt-1" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                        </svg>
+                        Email: <a href="mailto:contactenos@fronterait.com" class="hover:text-custom-yellow">contactenos@fronterait.com</a>
+                    </p>
+                    <p class="text-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline-block mr-1 -mt-1" viewBox="0 0 20 20" fill="currentColor">
+                           <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                        </svg>
+                        Teléfono: <a href="tel:+573053079501" class="hover:text-custom-yellow">305 307 9501</a>
+                    </p>
+                    <p class="text-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline-block mr-1 -mt-1" viewBox="0 0 20 20" fill="currentColor">
+                           <path fill-rule="evenodd" d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0l-4-4a2 2 0 010-2.828l3-3a2 2 0 012.828 0l1.172 1.172A2 2 0 0012.586 4.586zM4.414 11.414a2 2 0 000 2.828l3 3a2 2 0 002.828 0l4-4a2 2 0 00-2.828-2.828l-1.172-1.172a2 2 0 01-2.828-.001L4.414 11.414z" clip-rule="evenodd" />
+                        </svg>
+                        Web: <a href="http://www.fronterait.xyz" target="_blank" rel="noopener noreferrer" class="hover:text-custom-yellow">www.fronterait.xyz</a>
+                    </p>
+                    <p class="text-sm mt-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline-block mr-1 -mt-1" viewBox="0 0 20 20" fill="currentColor">
+                           <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+                        </svg>
+                        Dirección: <br>
+                        <p class="text-sm mt-">Cll 175 17a 11, Bogotá, Colombia<br>
+                        Cra 77 33a 30, Medellín, Colombia</p>
+                    </p>
+                </div>
+            </div>
+            <div class="mt-8 border-t border-custom-gray pt-8 text-center text-sm">
+                <p>&copy; <span id="currentYear"></span> Frontera IT. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Script para el menú móvil
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const svgs = mobileMenuButton.querySelectorAll('svg');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            svgs[0].classList.toggle('hidden'); // Icono de hamburguesa
+            svgs[1].classList.toggle('hidden'); // Icono de X
+        });
+
+        // Script para el año actual en el footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Fallback para imágenes si no cargan
+        const imagesWithFallback = document.querySelectorAll('img');
+        imagesWithFallback.forEach(img => {
+            img.onerror = function() {
+                this.onerror=null;
+                const isLogoInNav = this.alt.includes("Logo Frontera IT") && !this.alt.includes("pie de página");
+                const isLogoInFooter = this.alt.includes("Logo Frontera IT en pie de página");
+                let placeholderText = "Imagen";
+                let placeholderSize = "600x400"; 
+
+                if (isLogoInNav) {
+                    placeholderText = "Logo";
+                    placeholderSize = "180x180"; 
+                } else if (isLogoInFooter) {
+                    placeholderText = "Logo";
+                    placeholderSize = "80x80";
+                }
+                // Actualizado el color del placeholder al nuevo amarillo
+                this.src=`https://placehold.co/${placeholderSize}/E5B252/FFFFFF?text=${placeholderText.replace(/\s/g, '+')}`;
+                this.classList.add('bg-gray-300');
+            };
+        });
+    </script>
+
+</body>
+</html>
